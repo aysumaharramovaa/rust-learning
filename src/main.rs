@@ -63,4 +63,19 @@ fn main() {
     let first = saylar[0];
     let second = saylar[1];
     println!("First: {}, Second: {}", first, second);
+
+    use std::io;  // input/output kitabxanasını istifadə edirik
+    let eded = [1,3,4,5,6,7,8,9,10];
+    println!("{}", eded[0]);
+
+    let mut index = String::new(); // boş bir String yaradırıq və mut içi dəyişəcək anlamına gəlir
+    io::stdin() // standart inputdu 
+    .read_line(&mut index) // istifadəçidən input oxuyur
+    .expect("Failed to read line"); // əgər oxumaqda problem olsa bu mesajı verəcək
+
+    let index: usize = index // usize - integer tipidir
+    .trim() // boşluqları silir
+    .parse() // istifadəçidən gələn məlumat String olur
+    .expect("Index entered was not a number"); // əgər parse etməkdə problem olsa bu mesajı verəcək
+
 }
